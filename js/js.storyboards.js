@@ -81,7 +81,10 @@ function Timeline(type) {
 			break;
 			case 'audio':
 				return document.getElementById(this.attachedTo).currentTime * 1000;
-			break;			
+			break;	
+			case 'youtube':
+				return document.getElementById(this.attachedTo).getCurrentTime() * 1000;			
+			break;		
 		}
 	}
 	this.stopTimeline = function() {
@@ -92,6 +95,9 @@ function Timeline(type) {
 		if (this.type == 'audio') {
 			document.getElementById(this.attachedTo).pause();
 			document.getElementById(this.attachedTo).currentTime = 0;
+		} else if (this.type == 'youtube') {
+			document.getElementById(this.attachedTo).seekTo(0);
+			document.getElementById(this.attachedTo).stopVideo();
 		}
 	}
 	this.startTimeline = function() {
@@ -99,7 +105,10 @@ function Timeline(type) {
 		this.startTime = Date.now();
 		if (this.type == 'audio') { 
 			document.getElementById(this.attachedTo).play();
+		} else if (this.type == 'youtube') { 
+			document.getElementById(this.attachedTo).playVideo();
 		}
+
 		now = Date.now();
 		then = Date.now();
 	}
