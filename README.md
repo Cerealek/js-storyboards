@@ -40,3 +40,8 @@ Usage
 #####
 
 See 'examples' folder, you'll find a demo for the timer timeline, in combination with either audio element or youtube player.
+This example shows a complex timeline, with music, images and videos with fadeouts and various transitions:
+
+http://dojnet.czweb.org/superticket/
+
+
